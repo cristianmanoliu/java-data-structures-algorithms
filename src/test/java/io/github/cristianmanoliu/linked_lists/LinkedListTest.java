@@ -171,4 +171,37 @@ public class LinkedListTest {
     assertEquals(3, linkedList.getLength());
   }
 
+  @Test
+  public void insert() {
+    LinkedList linkedList = new LinkedList();
+    linkedList.append(2);
+    linkedList.append(1);
+    linkedList.append(3);
+
+    assertFalse(linkedList.insert(-1, 0));
+
+    assertTrue(linkedList.insert(3, 0));
+    assertEquals(2, linkedList.get(0).getValue());
+    assertEquals(1, linkedList.get(1).getValue());
+    assertEquals(3, linkedList.get(2).getValue());
+    assertEquals(0, linkedList.get(3).getValue());
+
+    assertTrue(linkedList.insert(0, 4));
+
+    assertEquals(4, linkedList.get(0).getValue());
+    assertEquals(2, linkedList.get(1).getValue());
+    assertEquals(1, linkedList.get(2).getValue());
+    assertEquals(3, linkedList.get(3).getValue());
+    assertEquals(0, linkedList.get(4).getValue());
+
+    assertTrue(linkedList.insert(1, 5));
+
+    assertEquals(4, linkedList.get(0).getValue());
+    assertEquals(5, linkedList.get(1).getValue());
+    assertEquals(2, linkedList.get(2).getValue());
+    assertEquals(1, linkedList.get(3).getValue());
+    assertEquals(3, linkedList.get(4).getValue());
+    assertEquals(0, linkedList.get(5).getValue());
+  }
+
 }

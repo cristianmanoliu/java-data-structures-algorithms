@@ -21,7 +21,7 @@ public class LinkedList {
 
   public boolean set(int index, int value) {
     // This can leverage get method
-    if (index < 0 || index >= length) {
+    if (index < 0 || index > length) {
       return false;
     }
 
@@ -101,6 +101,31 @@ public class LinkedList {
     }
     tail = newNode;
     length++;
+  }
+
+  public boolean insert(int index, int value) {
+    if (index < 0 || index > length) {
+      return false;
+    }
+
+    if (index == 0) {
+      prepend(value);
+      return true;
+    }
+
+    if (index == length) {
+      append(value);
+    }
+
+    Node prev = get(index - 1);
+    Node toBeShifted = prev.getNext();
+    Node newNode = new Node(value);
+
+    prev.setNext(newNode);
+    newNode.setNext(toBeShifted);
+    length++;
+
+    return true;
   }
 
   public int getLength() {
