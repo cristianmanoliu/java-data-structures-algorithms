@@ -21,7 +21,7 @@ public class LinkedList {
 
   public boolean set(int index, int value) {
     // This can leverage get method
-    if (index < 0 || index > length) {
+    if (index < 0 || index >= length) {
       return false;
     }
 
@@ -126,6 +126,38 @@ public class LinkedList {
     length++;
 
     return true;
+  }
+
+  public Node remove(int index) {
+    if (index < 0 || index >= length) {
+      return null;
+    }
+    Node removedNode;
+    if (index == 0) {
+      removedNode = removeFirst();
+    } else if (index == length - 1) {
+      removedNode = removeLast();
+    } else {
+      Node prevNode = get(index - 1);
+      removedNode = prevNode.getNext();
+      prevNode.setNext(removedNode.getNext());
+      length--;
+    }
+    return removedNode;
+  }
+
+  public void reverse() {
+    Node tmpNode = head;
+    head = tail;
+    tail = tmpNode;
+    Node beforeTargetNode = null;
+    Node afterTargetNode;
+    for (int i = 0; i < length; i++) {
+      afterTargetNode = tmpNode.getNext();
+      tmpNode.setNext(beforeTargetNode);
+      beforeTargetNode = tmpNode;
+      tmpNode = afterTargetNode;
+    }
   }
 
   public int getLength() {

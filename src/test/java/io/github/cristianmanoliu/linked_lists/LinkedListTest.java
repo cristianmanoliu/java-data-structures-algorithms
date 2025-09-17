@@ -204,4 +204,43 @@ public class LinkedListTest {
     assertEquals(0, linkedList.get(5).getValue());
   }
 
+  @Test
+  public void remove() {
+    LinkedList linkedList = new LinkedList();
+    linkedList.append(2);
+    linkedList.append(1);
+    linkedList.append(3);
+
+    assertNull(linkedList.remove(-1));
+    assertNull(linkedList.remove(3));
+
+    assertEquals(1, linkedList.remove(1).getValue());
+
+    assertEquals(2, linkedList.get(0).getValue());
+    assertEquals(3, linkedList.get(1).getValue());
+
+    assertEquals(2, linkedList.remove(0).getValue());
+
+    assertEquals(3, linkedList.get(0).getValue());
+
+    assertEquals(3, linkedList.remove(0).getValue());
+
+    assertNull(linkedList.remove(0));
+
+  }
+
+  @Test
+  public void reverse() {
+    LinkedList linkedList = new LinkedList();
+    linkedList.append(2);
+    linkedList.append(1);
+    linkedList.append(3);
+
+    linkedList.reverse();
+
+    assertEquals(3, linkedList.getHead().getValue());
+    assertEquals(1, linkedList.getHead().getNext().getValue());
+    assertEquals(2, linkedList.getTail().getValue());
+    assertEquals(3, linkedList.getLength());
+  }
 }
