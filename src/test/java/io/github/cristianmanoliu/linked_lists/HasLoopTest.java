@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 
 class HasLoopTest {
 
-  private final HasLoop hasLoop = new HasLoop();
-
   @Test
   @DisplayName("Returns false for an empty list")
   void returnsFalseForEmptyList() {
