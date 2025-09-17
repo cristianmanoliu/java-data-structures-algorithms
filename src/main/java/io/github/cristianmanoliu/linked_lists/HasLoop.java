@@ -1,12 +1,10 @@
 package io.github.cristianmanoliu.linked_lists;
 
-// Not allowed to count the length of the linked list
-// No access to length property
-public class FindMiddleNode {
+public class HasLoop {
 
-  public static Node findMiddleNode(LinkedList linkedList) {
+  public static boolean hasLoop(LinkedList linkedList) {
     if (linkedList.getHead() == null) {
-      return null;
+      return false;
     }
 
     Node slowPointer = linkedList.getHead();
@@ -17,9 +15,15 @@ public class FindMiddleNode {
       slowPointer = slowPointer.getNext();
       // move fast pointer two steps
       fastPointer = fastPointer.getNext().getNext();
+
+      // if they meet, there is a loop
+      if (slowPointer == fastPointer) {
+        return true;
+      }
     }
 
-    // when fastPointer reaches the end, slowPointer will be at the middle
-    return slowPointer;
+    // if we reach the end, there is no loop
+    return false;
   }
+
 }

@@ -8,13 +8,11 @@ import org.junit.jupiter.api.Test;
 
 public class FindMiddleNodeTest {
 
-  private final FindMiddleNode findMiddleNode = new FindMiddleNode();
-
   @Test
   @DisplayName("Empty list → returns null")
   void emptyList_returnsNull() {
     LinkedList linkedList = new LinkedList();
-    assertNull(findMiddleNode.findMiddleNode(linkedList));
+    assertNull(FindMiddleNode.findMiddleNode(linkedList));
   }
 
   @Test
@@ -22,7 +20,7 @@ public class FindMiddleNodeTest {
   void singleElement_returnsHead() {
     LinkedList linkedList = new LinkedList();
     linkedList.append(1);
-    assertSame(1, findMiddleNode.findMiddleNode(linkedList).getValue());
+    assertSame(1, FindMiddleNode.findMiddleNode(linkedList).getValue());
   }
 
   @Test
@@ -35,7 +33,7 @@ public class FindMiddleNodeTest {
     linkedList.append(4);
     linkedList.append(5);
     // expected middle is value 3 (third node, zero-based index 2)
-    assertSame(3, findMiddleNode.findMiddleNode(linkedList).getValue());
+    assertSame(3, FindMiddleNode.findMiddleNode(linkedList).getValue());
   }
 
   @Test
@@ -47,6 +45,6 @@ public class FindMiddleNodeTest {
     linkedList.append(3);
     linkedList.append(4);
     // SECOND middle should be value 3 (zero-based index 2)
-    assertSame(3, findMiddleNode.findMiddleNode(linkedList).getValue());
+    assertSame(3, FindMiddleNode.findMiddleNode(linkedList).getValue());
   }
 }
