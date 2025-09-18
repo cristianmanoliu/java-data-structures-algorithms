@@ -1,5 +1,7 @@
 package io.github.cristianmanoliu.linked_lists;
 
+import java.util.List;
+
 public class LinkedList {
 
   private Node head;
@@ -170,6 +172,20 @@ public class LinkedList {
 
   public Node getTail() {
     return tail;
+  }
+
+  public List<Integer> toList() {
+    List<Integer> list = new java.util.ArrayList<>();
+    Node tmp = head;
+    while (tmp != null) {
+      list.add(tmp.getValue());
+      tmp = tmp.getNext();
+    }
+    return list;
+  }
+
+  public boolean isEmpty() {
+    return length == 0;
   }
 }
 
