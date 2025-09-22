@@ -2,20 +2,20 @@ package io.github.cristianmanoliu.linked_lists;
 
 public class PartitionList {
 
-  public static void partition(LinkedList list, int x) {
-    if (list == null || list.getHead() == null) {
+  public static void partition(LinkedList linkedList, int pivot) {
+    if (linkedList == null || linkedList.getHead() == null) {
       return;
     }
 
     Node beforeStart = null, beforeEnd = null;
     Node afterStart = null, afterEnd = null;
 
-    Node current = list.getHead();
+    Node current = linkedList.getHead();
     while (current != null) {
       Node next = current.getNext();
       current.setNext(null); // detach from original list
 
-      if (current.getValue() < x) {
+      if (current.getValue() < pivot) {
         // Insert into end of before list
         if (beforeStart == null) {
           beforeStart = beforeEnd = current;
@@ -37,12 +37,12 @@ public class PartitionList {
 
     // Stitch and reset list invariants
     if (beforeStart == null) {
-      // all nodes are >= x so no before list
-      list.resetFromHead(afterStart);
+      // all nodes are >= pivot so no before list
+      linkedList.resetFromHead(afterStart);
     } else {
-      // there are some nodes < x
+      // there are some nodes < pivot
       beforeEnd.setNext(afterStart);
-      list.resetFromHead(beforeStart);
+      linkedList.resetFromHead(beforeStart);
     }
   }
 }

@@ -5,14 +5,14 @@ import java.util.Set;
 
 public class RemoveDuplicates {
 
-  public static void removeDuplicates(LinkedList list) {
-    if (list == null || list.getHead() == null) {
+  public static void removeDuplicates(LinkedList linkedList) {
+    if (linkedList == null || linkedList.getHead() == null) {
       return;
     }
 
     Set<Integer> seenValues = new HashSet<>();
 
-    Node current = list.getHead();
+    Node current = linkedList.getHead();
     Node previous = null;
 
     while (current != null) {
