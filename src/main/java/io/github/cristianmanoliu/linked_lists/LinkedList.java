@@ -8,6 +8,24 @@ public class LinkedList {
   private Node tail;
   private int length;
 
+  public LinkedList(List<Integer> values) {
+    if (values == null || values.isEmpty()) {
+      head = null;
+      tail = null;
+      length = 0;
+      return;
+    }
+
+    Node newNode = new Node(values.get(0));
+    head = newNode;
+    tail = newNode;
+    length = 1;
+
+    for (int i = 1; i < values.size(); i++) {
+      append(values.get(i));
+    }
+  }
+
   public LinkedList(int value) {
     Node newNode = new Node(value);
     head = newNode;
@@ -170,6 +188,10 @@ public class LinkedList {
     return head;
   }
 
+  public void setHead(Node head) {
+    this.head = head;
+  }
+
   public Node getTail() {
     return tail;
   }
@@ -186,6 +208,20 @@ public class LinkedList {
 
   public boolean isEmpty() {
     return length == 0;
+  }
+
+  public void resetFromHead(Node newHead) {
+    this.head = newHead;
+    // Recompute tail and length
+    Node t = newHead, last = null;
+    int len = 0;
+    while (t != null) {
+      last = t;
+      len++;
+      t = t.getNext();
+    }
+    this.tail = last;
+    this.length = len;
   }
 }
 
