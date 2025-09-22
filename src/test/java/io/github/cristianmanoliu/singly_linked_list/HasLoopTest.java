@@ -1,4 +1,4 @@
-package io.github.cristianmanoliu.linked_lists;
+package io.github.cristianmanoliu.singly_linked_list;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;

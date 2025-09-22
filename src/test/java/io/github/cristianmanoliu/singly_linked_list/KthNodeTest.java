@@ -1,8 +1,9 @@
-package io.github.cristianmanoliu.linked_lists;
+package io.github.cristianmanoliu.singly_linked_list;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import io.github.cristianmanoliu.singly_linked_list.LinkedList.Node;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

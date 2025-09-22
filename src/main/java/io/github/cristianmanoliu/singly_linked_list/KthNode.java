@@ -1,4 +1,6 @@
-package io.github.cristianmanoliu.linked_lists;
+package io.github.cristianmanoliu.singly_linked_list;
+
+import io.github.cristianmanoliu.singly_linked_list.LinkedList.Node;
 
 public class KthNode {
 

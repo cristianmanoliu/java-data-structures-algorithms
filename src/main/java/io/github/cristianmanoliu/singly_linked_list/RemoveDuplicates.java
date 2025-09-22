@@ -1,5 +1,6 @@
-package io.github.cristianmanoliu.linked_lists;
+package io.github.cristianmanoliu.singly_linked_list;
 
+import io.github.cristianmanoliu.singly_linked_list.LinkedList.Node;
 import java.util.HashSet;
 import java.util.Set;
 

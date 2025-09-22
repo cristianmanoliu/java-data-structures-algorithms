@@ -1,4 +1,4 @@
-package io.github.cristianmanoliu.linked_lists;
+package io.github.cristianmanoliu.singly_linked_list;
 
 import java.util.List;
 
@@ -7,7 +7,6 @@ public class LinkedList {
   private Node head;
   private Node tail;
   private int length;
-
   public LinkedList(List<Integer> values) {
     if (values == null || values.isEmpty()) {
       head = null;
@@ -222,6 +221,37 @@ public class LinkedList {
     }
     this.tail = last;
     this.length = len;
+  }
+
+  static class Node {
+
+    private int value;
+    private Node next;
+
+    public Node(int value) {
+      this.value = value;
+      this.next = null;
+    }
+
+    public int getValue() {
+      return value;
+    }
+
+    public void setValue(int value) {
+      this.value = value;
+    }
+
+    public Node getNext() {
+      return next;
+    }
+
+    public void setNext(Node next) {
+      this.next = next;
+    }
+
+    public String toString() {
+      return "Node{" + "value=" + value + ", next=" + next + '}';
+    }
   }
 }
 
