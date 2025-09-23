@@ -1,6 +1,7 @@
 package io.github.cristianmanoliu.double_linked_list;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.Collections;
 import java.util.List;
@@ -35,6 +36,16 @@ class DoubleLinkedListTest {
     list.append(1);
     list.append(2);
 
+    assertEquals(List.of(1, 2), list.toList());
+  }
+
+  @Test
+  public void testRemoveLast() {
+    DoubleLinkedList list = new DoubleLinkedList(List.of(1, 2, 3));
+    DoubleLinkedList.Node removedNode = list.removeLast();
+    assertEquals(3, removedNode.value);
+    assertNull(removedNode.next);
+    assertNull(removedNode.prev);
     assertEquals(List.of(1, 2), list.toList());
   }
 

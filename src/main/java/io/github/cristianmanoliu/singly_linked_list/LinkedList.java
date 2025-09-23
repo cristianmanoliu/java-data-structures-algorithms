@@ -7,6 +7,7 @@ public class LinkedList {
   private Node head;
   private Node tail;
   private int length;
+
   public LinkedList(List<Integer> values) {
     if (values == null || values.isEmpty()) {
       head = null;
@@ -223,7 +224,7 @@ public class LinkedList {
     this.length = len;
   }
 
-  static class Node {
+  public static class Node {
 
     private int value;
     private Node next;
