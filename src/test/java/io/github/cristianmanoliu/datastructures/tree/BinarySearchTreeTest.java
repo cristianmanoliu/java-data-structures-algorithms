@@ -1,6 +1,7 @@
 package io.github.cristianmanoliu.datastructures.tree;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -13,6 +14,24 @@ class BinarySearchTreeTest {
   public void constructor_ShouldCreateEmptyTree() {
     BinarySearchTree bst = new BinarySearchTree();
     assertNull(bst.getRoot());
+  }
+
+  @Test
+  public void contains_ShouldReturnFalseForEmptyTree() {
+    BinarySearchTree bst = new BinarySearchTree();
+    assertFalse(bst.contains(10));
+  }
+
+  @Test
+  public void contains_ShouldFindExistingValues() {
+    BinarySearchTree bst = new BinarySearchTree();
+    bst.insert(10);
+    bst.insert(5);
+    bst.insert(15);
+
+    assertTrue(bst.contains(10));
+    assertTrue(bst.contains(5));
+    assertTrue(bst.contains(15));
   }
 
   @Test

@@ -8,6 +8,20 @@ public class BinarySearchTree {
     return root;
   }
 
+  public boolean contains(int value) {
+    TreeNode currentNode = root;
+    while (currentNode != null) {
+      if (value < currentNode.getValue()) {
+        currentNode = currentNode.getLeft();
+      } else if (value > currentNode.getValue()) {
+        currentNode = currentNode.getRight();
+      } else {
+        return true; // Value found
+      }
+    }
+    return false; // Value not found
+  }
+
   public boolean insert(int value) {
     TreeNode newNode = new TreeNode(value);
     // If tree is empty, set new node as root
