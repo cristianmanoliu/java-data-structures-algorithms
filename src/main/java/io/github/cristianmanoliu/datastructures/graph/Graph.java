@@ -17,11 +17,12 @@ public class Graph {
     return true;
   }
 
-  public boolean addVertex(int vertex, List<Integer> edges) {
-    if (adjList.containsKey(vertex)) {
-      return false;
+  public boolean addEdge(int vertex1, int vertex2) {
+    if (adjList.containsKey(vertex1) && adjList.containsKey(vertex2)) {
+      adjList.get(vertex1).add(vertex2);
+      adjList.get(vertex2).add(vertex1); // For undirected graph
+      return true;
     }
-    adjList.put(vertex, edges);
-    return true;
+    return false;
   }
 }
