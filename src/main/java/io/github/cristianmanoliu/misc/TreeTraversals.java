@@ -1,4 +1,4 @@
-package io.github.cristianmanoliu.datastructures.tree;
+package io.github.cristianmanoliu.misc;
 
 /**
  * Class containing methods for different tree traversals.

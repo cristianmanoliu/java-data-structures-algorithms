@@ -1,4 +1,4 @@
-package io.github.cristianmanoliu.datastructures.tree;
+package io.github.cristianmanoliu.misc;
 
 public class TreeNode {
 

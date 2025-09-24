@@ -1,4 +1,4 @@
-package io.github.cristianmanoliu.datastructures.graph;
+package io.github.cristianmanoliu.misc;
 
 import java.util.ArrayList;
 import java.util.Collections;

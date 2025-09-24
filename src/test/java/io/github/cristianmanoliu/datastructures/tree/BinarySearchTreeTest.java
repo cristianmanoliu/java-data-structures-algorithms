@@ -45,7 +45,7 @@ class BinarySearchTreeTest {
     assertTrue(bst.insert(12));
     assertTrue(bst.insert(18));
 
-    TreeNode root = bst.getRoot();
+    Node root = bst.getRoot();
     assertNotNull(root);
     assertEquals(10, root.getValue());
     assertNotNull(root.getLeft());

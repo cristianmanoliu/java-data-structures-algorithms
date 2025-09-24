@@ -1,7 +1,5 @@
-package io.github.cristianmanoliu.datastructures.tree;
+package io.github.cristianmanoliu.misc;
 
-import io.github.cristianmanoliu.datastructures.tree.TreeNode;
-import io.github.cristianmanoliu.datastructures.tree.TreeTraversals;
 import org.junit.jupiter.api.Test;
 
 class TreeTraversalsTest {

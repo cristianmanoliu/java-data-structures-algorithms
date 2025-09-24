@@ -2,14 +2,14 @@ package io.github.cristianmanoliu.datastructures.tree;
 
 public class BinarySearchTree {
 
-  private TreeNode root;
+  private Node root;
 
-  public TreeNode getRoot() {
+  public Node getRoot() {
     return root;
   }
 
   public boolean contains(int value) {
-    TreeNode currentNode = root;
+    Node currentNode = root;
     while (currentNode != null) {
       if (value < currentNode.getValue()) {
         currentNode = currentNode.getLeft();
@@ -23,14 +23,14 @@ public class BinarySearchTree {
   }
 
   public boolean insert(int value) {
-    TreeNode newNode = new TreeNode(value);
+    Node newNode = new Node(value);
     // If tree is empty, set new node as root
     if (root == null) {
       root = newNode;
       return true;
     }
 
-    TreeNode currentNode = root;
+    Node currentNode = root;
     // Traverse the tree to find the correct insertion point
     while (true) {
       if (value < currentNode.getValue()) {

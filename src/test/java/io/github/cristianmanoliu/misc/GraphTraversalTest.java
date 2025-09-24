@@ -1,4 +1,4 @@
-package io.github.cristianmanoliu.datastructures.graph;
+package io.github.cristianmanoliu.misc;
 
 import org.junit.jupiter.api.Test;
 
