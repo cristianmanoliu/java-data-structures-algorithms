@@ -10,12 +10,14 @@ public class BinarySearchTree {
 
   public boolean insert(int value) {
     TreeNode newNode = new TreeNode(value);
+    // If tree is empty, set new node as root
     if (root == null) {
       root = newNode;
       return true;
     }
 
     TreeNode currentNode = root;
+    // Traverse the tree to find the correct insertion point
     while (true) {
       if (value < currentNode.getValue()) {
         // Go left
@@ -24,6 +26,7 @@ public class BinarySearchTree {
           currentNode.setLeft(newNode);
           return true;
         }
+        // Not empty, keep going left
         currentNode = currentNode.getLeft();
       } else if (value > currentNode.getValue()) {
         // Go right
@@ -32,6 +35,7 @@ public class BinarySearchTree {
           currentNode.setRight(newNode);
           return true;
         }
+        // Not empty, keep going right
         currentNode = currentNode.getRight();
       } else {
         // Value already exists in the tree

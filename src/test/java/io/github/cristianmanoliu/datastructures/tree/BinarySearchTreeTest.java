@@ -1,6 +1,9 @@
 package io.github.cristianmanoliu.datastructures.tree;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -15,23 +18,28 @@ class BinarySearchTreeTest {
   @Test
   public void insert_ShouldInsertValuesCorrectly() {
     BinarySearchTree bst = new BinarySearchTree();
-    bst.insert(10);
-    bst.insert(5);
-    bst.insert(15);
-    bst.insert(3);
-    bst.insert(7);
-    bst.insert(12);
-    bst.insert(18);
+    assertTrue(bst.insert(10));
+    assertTrue(bst.insert(5));
+    assertTrue(bst.insert(15));
+    assertTrue(bst.insert(3));
+    assertTrue(bst.insert(7));
+    assertTrue(bst.insert(12));
+    assertTrue(bst.insert(18));
 
     TreeNode root = bst.getRoot();
-    assert root != null;
-    assert root.getValue() == 10;
-    assert root.getLeft() != null && root.getLeft().getValue() == 5;
-    assert root.getRight() != null && root.getRight().getValue() == 15;
-    assert root.getLeft().getLeft() != null && root.getLeft().getLeft().getValue() == 3;
-    assert root.getLeft().getRight() != null && root.getLeft().getRight().getValue() == 7;
-    assert root.getRight().getLeft() != null && root.getRight().getLeft().getValue() == 12;
-    assert root.getRight().getRight() != null && root.getRight().getRight().getValue() == 18;
+    assertNotNull(root);
+    assertEquals(10, root.getValue());
+    assertNotNull(root.getLeft());
+    assertEquals(5, root.getLeft().getValue());
+    assertNotNull(root.getRight());
+    assertEquals(15, root.getRight().getValue());
+    assertNotNull(root.getLeft().getLeft());
+    assertEquals(3, root.getLeft().getLeft().getValue());
+    assertNotNull(root.getLeft().getRight());
+    assertEquals(7, root.getLeft().getRight().getValue());
+    assertNotNull(root.getRight().getLeft());
+    assertEquals(12, root.getRight().getLeft().getValue());
+    assertNotNull(root.getRight().getRight());
+    assertEquals(18, root.getRight().getRight().getValue());
   }
-
 }
