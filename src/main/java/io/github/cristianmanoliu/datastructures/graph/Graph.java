@@ -34,4 +34,18 @@ public class Graph {
     }
     return false;
   }
+
+  public boolean removeVertex(int vertex) {
+    if (!adjList.containsKey(vertex)) {
+      return false;
+    }
+    List<Integer> neighbors = adjList.get(vertex);
+    for (Integer neighbor : neighbors) {
+      adjList.get(neighbor).remove(Integer.valueOf(vertex));
+    }
+    adjList.remove(vertex);
+    return true;
+  }
+
+
 }
