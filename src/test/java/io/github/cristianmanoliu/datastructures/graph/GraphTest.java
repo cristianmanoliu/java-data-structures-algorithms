@@ -68,4 +68,47 @@ class GraphTest {
     assertFalse(graph.removeVertex(9));
   }
 
+  @Test
+  public void bfs() {
+    Graph graph = new Graph();
+    graph.addVertex(1);
+    graph.addVertex(2);
+    graph.addVertex(3);
+    graph.addVertex(4);
+    graph.addVertex(5);
+    graph.addVertex(6);
+
+    graph.addEdge(1, 2);
+    graph.addEdge(1, 3);
+    graph.addEdge(2, 4);
+    graph.addEdge(2, 5);
+    graph.addEdge(3, 6);
+
+    // Test BFS traversal
+    System.out.print("BFS starting from node 1: ");
+    graph.bfs(1); // Expected output: 1 2 3 4 5 6
+    System.out.println();
+  }
+
+  @Test
+  public void dfs() {
+    Graph graph = new Graph();
+    graph.addVertex(1);
+    graph.addVertex(2);
+    graph.addVertex(3);
+    graph.addVertex(4);
+    graph.addVertex(5);
+    graph.addVertex(6);
+
+    graph.addEdge(1, 2);
+    graph.addEdge(1, 3);
+    graph.addEdge(2, 4);
+    graph.addEdge(2, 5);
+    graph.addEdge(3, 6);
+
+    // Test DFS traversal
+    System.out.print("DFS starting from node 1: ");
+    graph.dfs(1); // Expected output: 1 2 4 5 3 6
+    System.out.println();
+  }
 }
