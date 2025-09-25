@@ -1,5 +1,9 @@
 package io.github.cristianmanoliu.datastructures.tree;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class BinarySearchTree {
 
   private Node root;
@@ -56,6 +60,54 @@ public class BinarySearchTree {
         return false;
       }
     }
+  }
+
+  /**
+   * Inorder traversal: Left -> Root -> Right
+   *
+   * @param root root of the tree
+   */
+  public List<Integer> inorder(Node root) {
+    if (root == null) {
+      return Collections.emptyList();
+    }
+    List<Integer> output = new ArrayList<>();
+    output.addAll(inorder(root.getLeft()));
+    output.add(root.getValue());
+    output.addAll(inorder(root.getRight()));
+    return output;
+  }
+
+  /**
+   * Preorder traversal: Root -> Left -> Right
+   *
+   * @param root root of the tree
+   */
+  public List<Integer> preorder(Node root) {
+    if (root == null) {
+      return Collections.emptyList();
+    }
+    List<Integer> output = new ArrayList<>();
+    output.add(root.getValue());
+    output.addAll(preorder(root.getLeft()));
+    output.addAll(preorder(root.getRight()));
+    return output;
+  }
+
+  /**
+   * Postorder traversal: Left -> Right -> Root
+   *
+   * @param root root of the tree
+   */
+  public List<Integer> postorder(Node root) {
+    if (root == null) {
+      return Collections.emptyList();
+    }
+    List<Integer> output = new ArrayList<>();
+    output.addAll(postorder(root.getLeft()));
+    output.addAll(postorder(root.getRight()));
+    output.add(root.getValue());
+    return output;
   }
 
 }
