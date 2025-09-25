@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
+import java.util.Stack;
 
 public class Graph {
 
@@ -57,14 +58,15 @@ public class Graph {
    *
    * @param start the starting node
    */
-  public void bfs(int start) {
+  public List<Integer> bfs(int start) {
+    List<Integer> output = new ArrayList<>();
     Set<Integer> visited = new HashSet<>();
     Queue<Integer> queue = new LinkedList<>();
     visited.add(start);
     queue.offer(start);
     while (!queue.isEmpty()) {
       int node = queue.poll();
-      System.out.print(node + " ");
+      output.add(node);
       for (int neighbor : this.adjList.getOrDefault(node, Collections.emptyList())) {
         if (!visited.contains(neighbor)) {
           visited.add(neighbor);
@@ -72,30 +74,68 @@ public class Graph {
         }
       }
     }
+    return output;
   }
 
   /**
-   * Depth-First Search (DFS) traversal from a starting node.
+   * Depth-First Search (DFS) traversal from a starting node. Using recursion.
    *
    * @param start the starting node
    */
-  public void dfs(int start) {
+  public List<Integer> dfsRecursion(int start) {
+    List<Integer> output = new ArrayList<>();
     Set<Integer> visited = new HashSet<>();
-    dfsHelper(start, visited);
+    dfsRecursionHelper(start, visited, output);
+    return output;
   }
 
   /**
    * Helper method for DFS traversal.
    */
-  private void dfsHelper(int node, Set<Integer> visited) {
+  private void dfsRecursionHelper(int node, Set<Integer> visited, List<Integer> output) {
     visited.add(node);
-    System.out.print(node + " ");
+    output.add(node);
     for (int neighbor : this.adjList.getOrDefault(node, Collections.emptyList())) {
       if (!visited.contains(neighbor)) {
-        dfsHelper(neighbor, visited);
+        dfsRecursionHelper(neighbor, visited, output);
       }
     }
   }
 
 
+  /**
+   * Depth-First Search (DFS) traversal from a starting node. Iterative approach.
+   *
+   * @param start the starting node
+   */
+  public List<Integer> dfsIterative(int start) {
+    List<Integer> output = new ArrayList<>();
+
+    Set<Integer> visited = new HashSet<>();
+    Stack<Integer> stack = new Stack<>();
+
+    // Start with the initial node
+    stack.push(start);
+
+    while (!stack.isEmpty()) {
+      int node = stack.pop();
+
+      // Process the node only if not visited
+      if (!visited.contains(node)) {
+        visited.add(node);
+        output.add(node);
+
+        // Push neighbors on stack in reverse order
+        // so the first neighbor is processed first
+        List<Integer> neighbors = this.adjList.getOrDefault(node, Collections.emptyList());
+        for (int i = neighbors.size() - 1; i >= 0; i--) {
+          int neighbor = neighbors.get(i);
+          if (!visited.contains(neighbor)) {
+            stack.push(neighbor);
+          }
+        }
+      }
+    }
+    return output;
+  }
 }
