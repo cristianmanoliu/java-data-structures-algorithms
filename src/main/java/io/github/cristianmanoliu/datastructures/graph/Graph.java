@@ -59,14 +59,20 @@ public class Graph {
    * @param start the starting node
    */
   public List<Integer> bfs(int start) {
+    // Used to store the order of visited nodes
     List<Integer> output = new ArrayList<>();
+    // To keep track of visited nodes
     Set<Integer> visited = new HashSet<>();
+    // Queue to manage the nodes to visit - FIFO (First In First Out)
     Queue<Integer> queue = new LinkedList<>();
+    // Start with the initial node
     visited.add(start);
     queue.offer(start);
     while (!queue.isEmpty()) {
       int node = queue.poll();
+      // Mark as visited and add to output
       output.add(node);
+      // Enqueue all unvisited neighbors
       for (int neighbor : this.adjList.getOrDefault(node, Collections.emptyList())) {
         if (!visited.contains(neighbor)) {
           visited.add(neighbor);
@@ -90,7 +96,7 @@ public class Graph {
   }
 
   /**
-   * Helper method for DFS traversal.
+   * Helper method for DFS traversal
    */
   private void dfsRecursionHelper(int node, Set<Integer> visited, List<Integer> output) {
     visited.add(node);
@@ -102,35 +108,34 @@ public class Graph {
     }
   }
 
-
   /**
    * Depth-First Search (DFS) traversal from a starting node. Iterative approach.
    *
    * @param start the starting node
    */
   public List<Integer> dfsIterative(int start) {
+    // Used to store the order of visited nodes
     List<Integer> output = new ArrayList<>();
-
+    // To keep track of visited nodes
     Set<Integer> visited = new HashSet<>();
+    // Stack to manage the nodes to visit - LIFO (Last In First Out)
     Stack<Integer> stack = new Stack<>();
-
     // Start with the initial node
     stack.push(start);
-
     while (!stack.isEmpty()) {
       int node = stack.pop();
-
       // Process the node only if not visited
       if (!visited.contains(node)) {
+        // Mark as visited and add to output
         visited.add(node);
+        // Add to output where we store the order of visited nodes
         output.add(node);
-
-        // Push neighbors on stack in reverse order
-        // so the first neighbor is processed first
+        // Push neighbors on stack in reverse order so the first neighbor is processed first
         List<Integer> neighbors = this.adjList.getOrDefault(node, Collections.emptyList());
         for (int i = neighbors.size() - 1; i >= 0; i--) {
           int neighbor = neighbors.get(i);
           if (!visited.contains(neighbor)) {
+            // Push unvisited neighbors onto the stack
             stack.push(neighbor);
           }
         }
